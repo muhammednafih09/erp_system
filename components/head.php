@@ -4,3 +4,4 @@
 <link rel="stylesheet" href="<?= $root_path ?>assets/bootstrap/css/bootstrap.min.css">
 <script src="<?= $root_path ?>assets/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="<?= $root_path ?>assets/css/style.css">
+<link rel="icon" href="<?= $root_path ?>assets/images/logo.png" class="icon">

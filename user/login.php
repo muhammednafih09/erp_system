@@ -13,7 +13,7 @@
         <div class="card form-card">
             <div class="row">
                 <div class="d-none d-md-block col-md-4">
-                    <img src="<?= $root_path ?>assets/images/plc.png" alt="">
+                    <img src="<?= $root_path ?>assets/images/icampus.png" alt="">
                 </div>
                 <div class="col-md-8 col-sm-12 p-5">
                     <h4 class="card-title text-white">Login</h4>
