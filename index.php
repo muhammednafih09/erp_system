@@ -12,7 +12,7 @@ $root_path = './';
 
 <body>
     <?php
-        require "components/side-bar.php";
+        require "components/side_bar.php";
     ?>
 </body>
 
