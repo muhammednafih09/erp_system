@@ -12,7 +12,6 @@ $root_path = './';
 
 <body>
     <?php
-        require "components/header.php";
         require "components/side-bar.php";
     ?>
 </body>
