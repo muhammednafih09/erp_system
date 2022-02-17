@@ -28,6 +28,10 @@
 body {
     background-image: url("../images/background.png");
     /* background-color: #eceff1; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 .no-border {
@@ -64,5 +68,33 @@ img {
 }
 
 .active {
+    background-color: var(--primary-color) !important;
+}
+
+hr {
+    color: var(--primary-light);
+}
+
+.search-bar {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+
+.side-bar {
+    height: 100%;
+    width: 250px;
+    position: fixed!important;
+    z-index: 1;
+    overflow: auto;
+}
+
+
+/* .card-shadow {
+    box-shadow: var(--shadow-4);
+} */
+
+.greeting {
     background-color: var(--primary-color) !important;
 }
