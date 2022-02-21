@@ -20,56 +20,63 @@ $root_path = '../';
                 <div class="row">
                     <div class="col-12 text-white">
                         <div class="card primary-color p-2">
-                        <p>Welcome HR</p>
+                            <p>Welcome HR</p>
                         </div>
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="col">
-                        <div class="card primary-color text-white" style="width: 18rem;">
-                            <img class="card-img-top" src="..." alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn secondary-color">Go somewhere</a>
+                <div class="row pb-5">
+                    <div class="col-4">
+                        <div class="card primary-color text-white align-items-center pt-3" style="width: 18rem;">
+                            <i class="fa-solid fa-user fa-3x"></i>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Profile</h5>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col">
-                        <div class="card primary-color text-white" style="width: 18rem;">
-                            <img class="card-img-top" src="..." alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn secondary-color">Go somewhere</a>
+                    <div class="col-4">
+                        <div class="card primary-color text-white align-items-center pt-3" style="width: 18rem;">
+                            <i class="fa-solid fa-chalkboard-user fa-3x"></i>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Staff</h5>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col">
-                        <div class="card primary-color text-white" style="width: 18rem;">
-                            <img class="card-img-top" src="..." alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn secondary-color">Go somewhere</a>
+                    <div class="col-4">
+                        <div class="card primary-color text-white align-items-center pt-3" style="width: 18rem;">
+                            <i class="fa-solid fa-graduation-cap fa-3x"></i>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Student</h5>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col">
-                        <div class="card primary-color text-white" style="width: 18rem;">
-                            <img class="card-img-top" src="..." alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn secondary-color">Go somewhere</a>
+                </div>
+
+                <div class="row pb-4">
+
+                    
+                    <div class="col-4">
+                        <div class="card primary-color text-white align-items-center pt-3" style="width: 18rem;">
+                            <i class="fa-solid fa-coins fa-3x"></i>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Accounts</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-4">
+                        <div class="card primary-color text-white align-items-center pt-3" style="width: 18rem;">
+                            <i class="fa-solid fa-gear fa-3x"></i>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Settings</h5>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

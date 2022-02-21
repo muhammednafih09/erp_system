@@ -90,11 +90,6 @@ hr {
     overflow: auto;
 }
 
-
-/* .card-shadow {
-    box-shadow: var(--shadow-4);
-} */
-
 .greeting {
     background-color: var(--primary-color) !important;
 }

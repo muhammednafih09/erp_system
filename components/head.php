@@ -5,3 +5,4 @@
 <script src="<?= $root_path ?>assets/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="<?= $root_path ?>assets/css/style.css">
 <link rel="icon" href="<?= $root_path ?>assets/images/logo.png" class="icon">
+<link href="<?= $root_path ?>assets/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet">

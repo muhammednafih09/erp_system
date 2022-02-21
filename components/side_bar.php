@@ -8,55 +8,48 @@
     <ul class="nav nav-pills flex-column mb-auto mt-4">
         <li class="nav-item">
             <a href="#" class="nav-link active" aria-current="page">
-                <span class="dashboard"><img src="" alt="" srcset=""></span>
+                <i class="fa-solid fa-gauge"></i>
                 Dashboard
             </a>
         </li>
         <hr>
         <li class="nav-item">
             <a href="#" class="nav-link link-dark">
-                <svg class="bi me-2" width="16" height="16">
-                    <use xlink:href="#home"></use>
-                </svg>
+                <i class="fa-solid fa-user"></i>
                 Profile
             </a>
         </li>
         <hr>
         <li>
             <a href="#" class="nav-link link-dark">
-                <svg class="bi me-2" width="16" height="16">
-                    <use xlink:href="#speedometer2"></use>
-                </svg>
+                <i class="fa-solid fa-chalkboard-user"></i>
                 Staff
             </a>
         </li>
         <hr>
         <li>
             <a href="#" class="nav-link link-dark">
-                <svg class="bi me-2" width="16" height="16">
-                    <use xlink:href="#table"></use>
-                </svg>
+                <i class="fa-solid fa-graduation-cap"></i>
                 Student
             </a>
         </li>
         <hr>
+
         <li>
             <a href="#" class="nav-link link-dark">
-                <svg class="bi me-2" width="16" height="16">
-                    <use xlink:href="#grid"></use>
-                </svg>
-                Settings
-            </a>
-        </li>
-        <hr>
-        <li>
-            <a href="#" class="nav-link link-dark">
-                <svg class="bi me-2" width="16" height="16">
-                    <use xlink:href="#people-circle"></use>
-                </svg>
+                <i class="fa-solid fa-coins"></i>
                 Account
             </a>
         </li>
         <hr>
+
+        <li>
+            <a href="#" class="nav-link link-dark">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+        </li>
+        <hr>
+
     </ul>
 </div>
