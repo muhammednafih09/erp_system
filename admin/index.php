@@ -1,9 +1,6 @@
 <?php
-session_start();
 $root_path = '../';
-$page_name = "dashboard";
 
-require "../models/User.php";
 ?>
 
 <html lang="en">
@@ -28,7 +25,7 @@ require "../models/User.php";
                     <br>
                     <div class="row">
                         <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="../admin/profile.php">
+                            <a href="">
                                 <div class="card primary-color text-white align-items-center pt-3">
                                     <i class="fa-solid fa-user fa-3x"></i>
                                     <div class="card-body text-center">
@@ -38,9 +35,8 @@ require "../models/User.php";
                             </a>
                         </div>
 
-                        <?php if(User::getUserTypeFromSession() == "staff"): ?>
                         <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="<?= $root_path ?>dashboard/index.php">
+                            <a href="">
                                 <div class="card primary-color text-white align-items-center pt-3">
                                     <i class="fa-solid fa-chalkboard-user fa-3x"></i>
                                     <div class="card-body text-center">
@@ -60,8 +56,6 @@ require "../models/User.php";
                                 </div>
                             </a>
                         </div>
-
-                        <?php endif ?>
 
                         <div class="col-sm-12 col-md-4 pb-5">
                             <a href="">
@@ -97,6 +91,7 @@ require "../models/User.php";
                         </div>
                     </div>
                 </div>
+
 
             </div>
 

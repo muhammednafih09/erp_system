@@ -76,7 +76,9 @@ hr {
 }
 
 .search-bar {
-    border: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     background-color: transparent;
     resize: none;
     outline: none;
@@ -87,9 +89,64 @@ hr {
     width: 250px;
     position: fixed!important;
     z-index: 1;
-    overflow: auto;
+    overflow: none;
 }
 
 .greeting {
     background-color: var(--primary-color) !important;
+}
+
+.btn-radio {
+    width: 50px;
+    height: 20px;
+}
+
+@media screen and (min-width:768px) {
+    .main-content {
+        margin-left: 220px;
+    }
+}
+
+.input-group {
+    width: 400px !important;
+    /* right: 1050px; */
+}
+
+.img-profile {
+    width: 30px;
+    border-radius: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.dropdown {
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.dropdown-content {
+    border-radius: 2px;
+    margin-top: 2px;
+    padding: 10px;
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.form-control:focus {
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+
+.main-content a {
+    text-decoration: none;
 }

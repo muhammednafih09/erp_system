@@ -20,8 +20,8 @@
                     <hr class="text-white-50">
                     <form action="login_handler.php" method="post">
                         <div class="form-group text-white">
-                            <label for="username">username</label>
-                            <input class="form-control no-border mt-1" type="text" name="username" id="username" autocomplete="off" placeholder="username">
+                            <label for="email">email</label>
+                            <input class="form-control no-border mt-1" type="email" name="email" id="email" autocomplete="off" placeholder="email">
 
                             <label class="mt-2" for="password">password</label>
                             <input type="password" name="password" id="password" class="form-control no-border mt-1" autocomplete="off" placeholder="password">
