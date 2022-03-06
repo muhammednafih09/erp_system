@@ -1,6 +1,6 @@
 <?php
-require "./MyDB.php";
-require "./User.php";
+require_once "./MyDB.php";
+require_once "./User.php";
 
 session_start();
 

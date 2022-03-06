@@ -6,13 +6,13 @@ $root_path = '../';
 <html lang="en">
 
 <head>
-    <?php require "$root_path/components/head.php"; ?>
+    <?php require_once "$root_path/components/head.php"; ?>
     <title>Dashboard</title>
 </head>
 
 <body>
     <?php
-    require "$root_path/components/side_bar.php";
+    require_once "$root_path/components/side_bar.php";
     ?>
     <div class="container">
         <div class="main-content">

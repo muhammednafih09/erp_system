@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require "../models/MyDB.php";
+require_once "../models/MyDB.php";
 
 $db = new MyDB('erp_system');
 $email = $_POST['email'];

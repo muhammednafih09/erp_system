@@ -3,12 +3,12 @@
 <html lang="en">
 
 <head>
-    <?php require "../components/head.php"; ?>
+    <?php require_once "../components/head.php"; ?>
     <title>Add User</title>
 </head>
 
 <body>
-    <?php require "../components/side_bar.php"; ?>
+    <?php require_once "../components/side_bar.php"; ?>
     <div class="container">
         <div class="main-content">
             <div class="" style="padding-top: 65px;">

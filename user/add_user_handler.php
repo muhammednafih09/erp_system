@@ -1,6 +1,6 @@
 <?php
 
-require "../models/MyDB.php";
+require_once "../models/MyDB.php";
 
 $db = new MyDB("erp_system");
 
@@ -16,7 +16,7 @@ if($pass == $conf_pass)
 {
     $hashpass = password_hash($pass, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO `tbl_users`(`id`, `firstname`, `lastname`, `email`, `phonenumber`, `password`, `user_type`) VALUES ('','$fname','$lname','$email','$phone','$hashpass','$user_type')";
+    $sql = "INSERT INTO `tbl_users`(`id`, `first_name`, `last_name`, `email`, `phone_number`, `password`, `user_type`, `active`) VALUES ('','$fname','$lname','$email','$phone','$hashpass','$user_type', 1)";
 
     $db->runSQL($sql);
 

@@ -1,18 +1,18 @@
 <?php
-$root_path = './';
+$root_path = '.';
 
 ?>
 
 <html lang="en">
 
 <head>
-    <?php require "components/head.php"; ?>
+    <?php require_once "components/head.php"; ?>
     <title>Home</title>
 </head>
 
 <body>
     <?php
-        require "components/side_bar.php";
+        require_once "components/side_bar.php";
     ?>
 </body>
 

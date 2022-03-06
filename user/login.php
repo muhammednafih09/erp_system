@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <?php require "../components/head.php"; ?>
+    <?php require_once "../components/head.php"; ?>
     <title>Login</title>
 </head>
 

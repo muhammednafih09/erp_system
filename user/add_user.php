@@ -1,14 +1,18 @@
-<?php $root_path = "../"; ?>
+<?php 
+session_start();
+$root_path = "../"; 
+require_once "../models/User.php";
+?>
 
 <html lang="en">
 
 <head>
-    <?php require "../components/head.php"; ?>
+    <?php require_once "../components/head.php"; ?>
     <title>Add User</title>
 </head>
 
 <body>
-    <?php require "../components/side_bar.php"; ?>
+    <?php require_once "../components/side_bar.php"; ?>
     <div class="container">
         <div class="main-content">
             <div class="" style="padding-top: 65px;">
@@ -41,16 +45,15 @@
 
                                 <label for="confirm_password">Confirm Password</label>
                                 <input type="password" name="confirm_password" id="confirm_password" class="form-control" required>
-                                <br>
 
-                                <span>Select User Type</span>
+                                <!-- <span>Select User Type</span>
                                 <br><br>
 
                                 <input type="radio" name="user_type" id="student" class="btn-radio" value="student" required>
                                 <label for="student">Student</label>
 
                                 <input type="radio" name="user_type" id="staff" class="btn-radio" value="staff" required>
-                                <label for="staff">Staff</label>
+                                <label for="staff">Staff</label> -->
                                 <br><br>
 
                                 <input type="submit" value="Create" class="btn primary-color text-white">

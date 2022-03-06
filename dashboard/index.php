@@ -3,26 +3,25 @@ session_start();
 $root_path = '../';
 $page_name = "dashboard";
 
-require "../models/User.php";
 ?>
 
 <html lang="en">
 
 <head>
-    <?php require "$root_path/components/head.php"; ?>
+    <?php require_once "$root_path/components/head.php"; ?>
     <title>Dashboard</title>
 </head>
 
 <body>
     <?php
-    require "$root_path/components/side_bar.php";
+    require_once "$root_path/components/side_bar.php";
     ?>
     <div class="container">
         <div class="main-content">
             <div class="" style="padding-top: 65px;">
                 <div class="container-fluid">
                     <div class="card secondary-color text-dark">
-                        <p class="px-3 mt-3"><b>Welcome HR</b></p>
+                        <p class="px-3 mt-3"><b>Welcome <?= $_SESSION['user']['first_name'] ?></b></p>
                     </div>
 
                     <br>
@@ -40,7 +39,7 @@ require "../models/User.php";
 
                         <?php if(User::getUserTypeFromSession() == "staff"): ?>
                         <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="<?= $root_path ?>dashboard/index.php">
+                            <a href="<?= $root_path ?>staff/index.php">
                                 <div class="card primary-color text-white align-items-center pt-3">
                                     <i class="fa-solid fa-chalkboard-user fa-3x"></i>
                                     <div class="card-body text-center">
@@ -64,7 +63,7 @@ require "../models/User.php";
                         <?php endif ?>
 
                         <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="">
+                            <a href="<?= $root_path ?>common/error_503.php">
                                 <div class="card primary-color text-white align-items-center pt-3">
                                     <i class="fa-solid fa-list-check fa-3x"></i>
                                     <div class="card-body text-center">
@@ -75,7 +74,7 @@ require "../models/User.php";
                         </div>
 
                         <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="">
+                            <a href="<?= $root_path ?>common/error_503.php">
                                 <div class="card primary-color text-white align-items-center pt-3">
                                     <i class="fa-solid fa-coins fa-3x"></i>
                                     <div class="card-body text-center">
@@ -86,7 +85,7 @@ require "../models/User.php";
                         </div>
 
                         <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="">
+                            <a href="<?= $root_path ?>common/error_503.php">
                                 <div class="card primary-color text-white align-items-center pt-3">
                                     <i class="fa-solid fa-gear fa-3x"></i>
                                     <div class="card-body text-center">

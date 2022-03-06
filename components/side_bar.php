@@ -1,3 +1,16 @@
+<?php
+
+require_once "$root_path/models/MyDB.php";
+require_once "$root_path/models/User.php";
+
+$db = new MyDB();
+// User::getUserTypeFromSession() != "staff"
+if(!User::isUserLoggedIn()){
+    header("location:$root_path/user/login.php");
+}
+$user = User::getUserFromSession();
+
+?>
 <div class="d-flex flex-column flex-shrink-0 p-3 pt-5 secondary-color side-bar d-none d-sm-block">
     <nav class="navbar fixed-top navbar-light primary-color p-2 float-start">
         <a class="navbar-brand text-white" href="#">icampus</a>
