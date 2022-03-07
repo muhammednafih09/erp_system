@@ -150,3 +150,7 @@ hr {
 .main-content a {
     text-decoration: none;
 }
+
+.login-input {
+    background-color: #fff !important;
+}

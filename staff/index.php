@@ -1,9 +1,10 @@
 <?php
 session_start();
-$root_path = '../';
+$root_path = '..';
 $page_name = "staff";
 
-require_once "../models/User.php";
+require_once "$root_path/models/User.php";
+require_once "$root_path/components/dashButton.php";
 ?>
 
 <html lang="en">
@@ -22,19 +23,21 @@ require_once "../models/User.php";
             <div class="" style="padding-top: 65px;">
                 <div class="container-fluid">
                     <div class="row">
-                        
-                        <div class="col-sm-12 col-md-4 pb-5">
+                        <?php
+                        dashButton("$root_path/staff/manage_staff.php", "pen-to-square", "Manage Staff");
+                        ?>
+                        <!-- <div class="col-sm-12 col-md-4 pb-5">
                             <a href="<?= $root_path ?>user/view_user.php">
                                 <div class="card primary-color text-white align-items-center pt-3">
-                                    <i class="fa-solid fa-eye fa-3x"></i>
+                                    <i class="fa-solid fa-pen-to-square fa-3x"></i>
                                     <div class="card-body text-center">
-                                        <h5 class="card-title">View Staff</h5>
+                                        <h5 class="card-title">Manage Staff</h5>
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
 
-                        <div class="col-sm-12 col-md-4 pb-5">
+                        <!-- <div class="col-sm-12 col-md-4 pb-5">
                             <a href="<?= $root_path ?>user/add_user.php">
                                 <div class="card primary-color text-white align-items-center pt-3">
                                     <i class="fa-solid fa-circle-plus fa-3x"></i>
@@ -54,7 +57,7 @@ require_once "../models/User.php";
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
 
                     </div>
 

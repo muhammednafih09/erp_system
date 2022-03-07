@@ -1,5 +1,5 @@
 <?php
-$root_path = '../';
+$root_path = '..';
 
 ?>
 
@@ -18,6 +18,8 @@ $root_path = '../';
         <div class="main-content">
             <div class="" style="padding-top: 65px;">
                 <div class="container-fluid">
+                    <button class="btn btn-success float-end">Add Staff</button>
+                    <br><br>
 
                     <div class="row">
                         <div class="col-12 pb-5">
@@ -83,3 +85,8 @@ $root_path = '../';
 
             </div>
         </div>
+    </div>
+
+</body>
+
+</html>

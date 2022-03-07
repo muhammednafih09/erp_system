@@ -1,5 +1,5 @@
 <?php
-$root_path = '../';
+$root_path = '..';
 $page_name = "profile";
 
 require_once "../models/MyDB.php";
@@ -39,7 +39,7 @@ $user = User::getUserFromSession();
                                 </div>
                                 <div class="card-body">
                                     <div class="profile-image text-center">
-                                        <img src="../assets/images/users/<?= $user->getProfilePicUrl() ?>" alt="" class="" style="width: 100px; border-radius: 100% !important;">
+                                        <img src="<?= $root_path ?>/assets/images/users/<?= $user->getProfilePicUrl() ?>" alt="" class="" style="width: 100px; border-radius: 100% !important;">
                                     </div>
                                     <br><br>
 

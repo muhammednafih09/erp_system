@@ -24,6 +24,10 @@ class MyDB{
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
     }
+
+    function lastInsertedRowId(){
+        return $this->db->lastInsertId();
+    }
 }
 
 ?>

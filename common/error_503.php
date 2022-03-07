@@ -1,6 +1,6 @@
 <?php
 session_start();
-$root_path = '../';
+$root_path = '..';
 $page_name = "dashboard";
 
 require_once "../models/User.php";

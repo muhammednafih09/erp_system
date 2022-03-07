@@ -1,7 +1,16 @@
 <?php
 session_start();
-$root_path = '../';
+$root_path = '..';
 $page_name = "dashboard";
+
+
+require_once "$root_path/models/MyDB.php";
+require_once "$root_path/models/User.php";
+
+$db = new MyDB();
+
+
+require_once "$root_path/components/dashButton.php";
 
 ?>
 
@@ -21,79 +30,22 @@ $page_name = "dashboard";
             <div class="" style="padding-top: 65px;">
                 <div class="container-fluid">
                     <div class="card secondary-color text-dark">
-                        <p class="px-3 mt-3"><b>Welcome <?= $_SESSION['user']['first_name'] ?></b></p>
+                        <p class="px-3 mt-3"><b>Welcome <?= strtoupper($_SESSION['user']['first_name']." ".$_SESSION['user']['last_name']) ?></b></p>
                     </div>
 
                     <br>
                     <div class="row">
-                        <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="../admin/profile.php">
-                                <div class="card primary-color text-white align-items-center pt-3">
-                                    <i class="fa-solid fa-user fa-3x"></i>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Profile</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                        <?php
+                            dashButton("$root_path/user/profile.php", "user", "Profile");
 
-                        <?php if(User::getUserTypeFromSession() == "staff"): ?>
-                        <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="<?= $root_path ?>staff/index.php">
-                                <div class="card primary-color text-white align-items-center pt-3">
-                                    <i class="fa-solid fa-chalkboard-user fa-3x"></i>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Staff</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="">
-                                <div class="card primary-color text-white align-items-center pt-3">
-                                    <i class="fa-solid fa-graduation-cap fa-3x"></i>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Student</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <?php endif ?>
-
-                        <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="<?= $root_path ?>common/error_503.php">
-                                <div class="card primary-color text-white align-items-center pt-3">
-                                    <i class="fa-solid fa-list-check fa-3x"></i>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Attendance</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="<?= $root_path ?>common/error_503.php">
-                                <div class="card primary-color text-white align-items-center pt-3">
-                                    <i class="fa-solid fa-coins fa-3x"></i>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Accounts</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="<?= $root_path ?>common/error_503.php">
-                                <div class="card primary-color text-white align-items-center pt-3">
-                                    <i class="fa-solid fa-gear fa-3x"></i>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Settings</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                            if(User::getUserTypeFromSession() == "staff"){
+                                dashButton("$root_path/staff/", "chalkboard-user", "Staff");
+                                dashButton("$root_path/student/", "graduation-cap", "Student");
+                                dashButton("$root_path/common/error_503.php", "list-check", "Attendance");
+                                dashButton("$root_path/common/error_503.php", "coins", "Accounts");
+                            }
+                            dashButton("$root_path/common/error_503.php", "gear", "Settings");
+                        ?>
                     </div>
                 </div>
 
