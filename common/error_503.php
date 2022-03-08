@@ -1,9 +1,18 @@
 <?php
 session_start();
-$root_path = '..';
-$page_name = "dashboard";
+$root_path = "..";
+$page_name = "";
 
-require_once "../models/User.php";
+
+require_once "$root_path/models/MyDB.php";
+require_once "$root_path/models/User.php";
+
+if(!User::isUserLoggedIn()){
+    header("location:$root_path/user/login.php");
+}
+
+$db = new MyDB();
+$loggedIn_user = User::getUserFromSession();
 ?>
 
 <html lang="en">

@@ -15,7 +15,7 @@ if($user){
 
     if($result){
         echo "logged in";
-        $_SESSION["user"] = $user;
+        $_SESSION["user"] = $user->toArray();
         header("location:../dashboard/index.php");
     } else{
         echo "wrong credentials";
@@ -25,5 +25,7 @@ if($user){
     echo "wrong credentials";
     header("location:login.php?msg=wrong%20password");
 }
+
+
 
 ?>

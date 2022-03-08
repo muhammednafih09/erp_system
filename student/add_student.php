@@ -1,7 +1,7 @@
 <?php
 session_start();
 $root_path = "..";
-$page_name = "staff";
+$page_name = "student";
 
 
 require_once "$root_path/models/MyDB.php";
@@ -19,7 +19,7 @@ $loggedIn_user = User::getUserFromSession();
 
 <head>
     <?php require_once "$root_path/components/head.php"; ?>
-    <title>Add Staff</title>
+    <title>Add Student</title>
 </head>
 
 <body>
@@ -30,10 +30,10 @@ $loggedIn_user = User::getUserFromSession();
                 <div class="container-fluid p-2">
                     <div class="card p-4 secondary-color">
                         <div class="card-title text-center">
-                            <h4>Add Staff</h4>
+                            <h4>Add Student</h4>
                         </div>
                         <div class="card-body">
-                            <form action="add_staff_handler.php" name="" method="post"  enctype="multipart/form-data">
+                            <form action="add_student_handler.php" name="" method="post"  enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6">
                                         <label for="firstname">First Name</label>

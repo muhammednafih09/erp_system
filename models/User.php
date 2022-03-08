@@ -16,6 +16,34 @@ class User
     ) {
     }
 
+    public function toArray(){
+        return [
+            "id"=>$this->id,
+            "firstName"=>$this->firstName,
+            "lastName"=>$this->lastName,
+            "email"=>$this->email,
+            "phoneNumber"=>$this->phoneNumber,
+            "pass"=>$this->pass,
+            "userType"=>$this->userType,
+            "department"=>$this->department->toArray(),
+            "active"=>$this->active
+        ];
+    }
+
+    public static function fromArray($userArray){
+        return new self(
+            $userArray["id"],
+            $userArray["firstName"],
+            $userArray["lastName"],
+            $userArray["email"],
+            $userArray["phoneNumber"],
+            $userArray["pass"],
+            $userArray["userType"],
+            Department::fromArray($userArray["department"]),
+            $userArray["active"]
+        );
+    }
+
     public function create(MyDB $db)
     {
         $hashpass = password_hash($this->pass, PASSWORD_DEFAULT);
@@ -28,9 +56,15 @@ class User
         $this->id = $db->lastInsertedRowId();
     }
 
+    public function update(MyDB $db){
+        $sql = "UPDATE `tbl_users` SET `first_name`='".$this->firstName."',`last_name`='".$this->lastName."',`email`='".$this->email."',`phone_number`='".$this->phoneNumber."',`password`='".$this->pass."',`user_type`='".$this->userType."',`department`='".$this->department->id."',`active`='".$this->active."' WHERE id = ".$this->id;
+
+        $db->runSQL($sql);
+    }
+
     public static function getAll(MyDB $db)
     {
-        $users = $db->getRows("SELECT * FROM tbl_users");
+        $users = $db->getRows("SELECT * FROM tbl_users WHERE active = 1");
         $userObjs = [];
         foreach ($users as $user) {
             array_push($userObjs, new self($user["id"], $user["first_name"], $user["last_name"], $user["email"], $user["phone_number"], null, $user["user_type"], Department::getOne($db, $user['department']), $user["active"]));
@@ -45,7 +79,7 @@ class User
 
     public static function getUserTypeFromSession()
     {
-        return $_SESSION['user']['user_type'];
+        return self::getUserFromSession()->userType;
     }
 
     public static function getUserById(int $id, MyDB $db)
@@ -88,7 +122,10 @@ class User
 
     public static function getUserFromSession()
     {
-        return $_SESSION['user'];
+        if(!array_key_exists('user', $_SESSION)){
+            return null;
+        }
+        return self::fromArray($_SESSION['user']);
     }
 
     public static function isUserLoggedIn()

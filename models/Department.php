@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Deprecated;
+
 class Department{
     public function __construct(
         public int $id,
@@ -7,6 +9,22 @@ class Department{
         public string $head
     ){
         
+    }
+
+    public function toArray(){
+        return [
+            "id"=>$this->id,
+            "name"=>$this->name,
+            "head"=>$this->head
+        ];
+    }
+
+    public static function fromArray($deptArray){
+        return new self(
+            $deptArray["id"],
+            $deptArray["name"],
+            $deptArray["head"]
+        );
     }
 
     public static function getAll(MyDB $db){

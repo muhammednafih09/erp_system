@@ -14,12 +14,12 @@ $department_id = $_POST['department_id'];
 
 $hashpass = password_hash($pass, PASSWORD_DEFAULT);
 
-$staff = new User(null, $fname, $lname, $email, $phone, $hashpass, "staff", Department::getOne($db, $department_id), 1);
-$staff->create($db);
+$student = new User(null, $fname, $lname, $email, $phone, $hashpass, "student", Department::getOne($db, $department_id), 1);
+$student->create($db);
 
-$filepath = "../assets/images/users/".$staff->id.".png";
+$filepath = "../assets/images/users/".$student->id.".png";
 
 move_uploaded_file($_FILES["user_photo"]["tmp_name"], $filepath);
 
-header("location:./manage_staff.php");
+header("location:./manage_student.php");
 ?>

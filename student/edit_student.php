@@ -1,25 +1,28 @@
 <?php
 session_start();
 $root_path = "..";
-$page_name = "staff";
+$page_name = "student";
 
 
 require_once "$root_path/models/MyDB.php";
 require_once "$root_path/models/User.php";
 
-if(!User::isUserLoggedIn()){
+if (!User::isUserLoggedIn()) {
     header("location:$root_path/user/login.php");
 }
 
 $db = new MyDB();
 $loggedIn_user = User::getUserFromSession();
+$id = $_GET["id"];
+
+$target_student = User::getUserById($id, $db);
 ?>
 
 <html lang="en">
 
 <head>
     <?php require_once "$root_path/components/head.php"; ?>
-    <title>Add Staff</title>
+    <title>Edit Student</title>
 </head>
 
 <body>
@@ -30,39 +33,40 @@ $loggedIn_user = User::getUserFromSession();
                 <div class="container-fluid p-2">
                     <div class="card p-4 secondary-color">
                         <div class="card-title text-center">
-                            <h4>Add Staff</h4>
+                            <h4>Edit Student</h4>
                         </div>
                         <div class="card-body">
-                            <form action="add_staff_handler.php" name="" method="post"  enctype="multipart/form-data">
+                            <form action="edit_student_handler.php" name="" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="id" value="<?= $target_student->id ?>">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6">
                                         <label for="firstname">First Name</label>
-                                        <input type="text" name="firstname" id="firstname" class="form-control" required>
+                                        <input type="text" name="firstname" id="firstname" class="form-control" value="<?= $target_student->firstName ?>" required>
                                     </div>
 
                                     <div class="col-sm-12 col-md-6">
                                         <label for="lastname">Last Name</label>
-                                        <input type="text" name="lastname" id="lastname" class="form-control" required>
+                                        <input type="text" name="lastname" id="lastname" class="form-control" value="<?= $target_student->lastName ?>" required>
                                     </div>
 
                                     <div class="col-sm-12 col-md-6">
                                         <label for="email">Email</label>
-                                        <input type="mail" name="email" id="email" class="form-control" required>
+                                        <input type="mail" name="email" id="email" class="form-control" value="<?= $target_student->email ?>" required>
                                     </div>
 
                                     <div class="col-sm-12 col-md-6">
                                         <label for="phone_number">Phone Number</label>
-                                        <input type="tel" name="phone_number" id="phone_number" class="form-control" required>
+                                        <input type="tel" name="phone_number" id="phone_number" class="form-control" value="<?= $target_student->phoneNumber ?>" required>
                                     </div>
 
                                     <div class="col-sm-12 col-md-6">
                                         <label for="password">Password</label>
-                                        <input type="password" name="password" id="password" class="form-control" required>
+                                        <input type="password" name="password" id="password" class="form-control" value="">
                                     </div>
 
                                     <div class="col-sm-12 col-md-6">
                                         <label for="confirm_password">Confirm Password</label>
-                                        <input type="password" name="confirm_password" id="confirm_password" class="form-control" required>
+                                        <input type="password" name="confirm_password" id="confirm_password" class="form-control" value="">
                                     </div>
 
                                     <div class="col-sm-12 col-md-6">
@@ -70,19 +74,19 @@ $loggedIn_user = User::getUserFromSession();
                                         <select name="department_id" id="department_id" class="form-select">
                                             <option disabled selected>select any</option>
                                             <?php foreach (Department::getAll($db) as $dept) : ?>
-                                                <option value="<?= $dept->id ?>"><?= $dept->name ?></option>
+                                                <option value="<?= $dept->id ?>" <?= $target_student->department->id == $dept->id ? "selected" : "" ?>><?= $dept->name ?></option>
                                             <?php endforeach ?>
                                         </select>
                                     </div>
 
                                     <div class="col-sm-12 col-md-6">
                                         <label for="user_photo">Choose Photo</label>
-                                        <input type="file" name="user_photo" id="user_photo" class="form-control" required>
+                                        <input type="file" name="user_photo" id="user_photo" class="form-control">
                                     </div>
                                 </div>
-                                <br><br>
+                                <br>
 
-                                <input type="submit" value="Create" class="btn primary-color text-white">
+                                <input type="submit" value="Update" class="btn primary-color text-white float-end">
                             </form>
                         </div>
 

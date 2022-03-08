@@ -1,7 +1,7 @@
 <?php
 session_start();
 $root_path = "..";
-$page_name = "staff";
+$page_name = "student";
 
 
 require_once "$root_path/models/MyDB.php";
@@ -31,7 +31,7 @@ $loggedIn_user = User::getUserFromSession();
         <div class="main-content">
             <div class="" style="padding-top: 65px;">
                 <div class="container-fluid">
-                    <a href="add_staff.php" class="btn btn-success float-end">Add Staff</a>
+                    <a href="add_student.php" class="btn btn-success float-end">Add Student</a>
                     <br><br>
 
                     <div class="row">
@@ -51,17 +51,17 @@ $loggedIn_user = User::getUserFromSession();
                                     </thead>
                                     <tbody>
                                         <?php foreach (User::getAll($db) as $index=> $userObj) :
-                                            if($userObj->userType != "staff")
-                                                continue;
-                                             ?>
+                                            if($userObj->userType != "student")
+                                            continue;
+                                            ?>
                                             <tr>
                                                 <th scope="row"><?= $index+1; ?></th>
                                                 <td><img src="<?= $root_path ?>/assets/images/users/<?= $userObj->getProfilePicUrl() ?>" alt="" class="" style="width: 50px; height: 50px; border-radius: 100% !important;"></td>
                                                 <td><?= $userObj->firstName; ?></td>
                                                 <td><?= $userObj->lastName; ?></td>
                                                 <td><?= $userObj->department->name; ?></td>
-                                                <td><a href="edit_staff.php?id=<?= $userObj->id ?>" class="btn primary-color text-white">Edit</a></td>
-                                                <td><a href="delete_staff.php?id=<?= $userObj->id ?>" class="btn bg-danger text-white">Delete</a></td>
+                                                <td><a href="edit_student.php?id=<?= $userObj->id ?>" class="btn primary-color text-white">Edit</a></td>
+                                                <td><a href="delete_student.php?id=<?= $userObj->id ?>" class="btn bg-danger text-white">Delete</a></td>
                                             </tr>
                                         <?php endforeach ?>
                                     </tbody>

@@ -1,10 +1,7 @@
 <?php
 // User::getUserTypeFromSession() != "staff"
-if(!User::isUserLoggedIn()){
-    header("location:$root_path/user/login.php");
-}
-$user = User::getUserFromSession();
-var_dump($user);
+
+// var_dump($user);
 
 ?>
 <div class="d-flex flex-column flex-shrink-0 p-3 pt-5 secondary-color side-bar d-none d-sm-block">
@@ -20,7 +17,7 @@ var_dump($user);
 
         <div class="profile p-1 m-0 dropdown">
             <a href="<?= $root_path ?>/user/profile.php">
-                <img class="profile-photo p-3 img-profile" src="<?= $root_path ?>/assets/images/users/<?= $user->getProfilePicUrl() ?>" alt="profile_photo">
+                <img class="profile-photo p-3 img-profile" src="<?= $root_path ?>/assets/images/users/<?= $loggedIn_user->getProfilePicUrl() ?>" alt="profile_photo">
             </a>
             <div class="dropdown-content primary-color">
                 <a href="<?= $root_path ?>/user/profile.php" style="text-decoration: none;">
@@ -59,7 +56,7 @@ var_dump($user);
             </a>
         </li>
         <hr>
-        <?php if(User::getUserTypeFromSession() == "staff"): ?>
+        <?php if($loggedIn_user->userType == "staff"): ?>
         <li>
             <a href="<?= $root_path ?>/staff/index.php" class="nav-link <?= $page_name == "staff" ? "active" : "link-dark" ?>">
                 <i class="fa-solid fa-chalkboard-user"></i>

@@ -1,13 +1,18 @@
 <?php
 session_start();
-$root_path = '..';
+$root_path = "..";
 $page_name = "dashboard";
 
 
 require_once "$root_path/models/MyDB.php";
 require_once "$root_path/models/User.php";
 
+if(!User::isUserLoggedIn()){
+    header("location:$root_path/user/login.php");
+}
+
 $db = new MyDB();
+$loggedIn_user = User::getUserFromSession();
 
 
 require_once "$root_path/components/dashButton.php";
@@ -30,7 +35,7 @@ require_once "$root_path/components/dashButton.php";
             <div class="" style="padding-top: 65px;">
                 <div class="container-fluid">
                     <div class="card secondary-color text-dark">
-                        <p class="px-3 mt-3"><b>Welcome <?= strtoupper($_SESSION['user']['first_name']." ".$_SESSION['user']['last_name']) ?></b></p>
+                        <p class="px-3 mt-3"><b>Welcome <?= strtoupper($loggedIn_user->firstName." ".$loggedIn_user->lastName) ?></b></p>
                     </div>
 
                     <br>

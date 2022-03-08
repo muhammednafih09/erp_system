@@ -1,7 +1,18 @@
 <?php
-$root_path = '..';
+session_start();
+$root_path = "..";
 $page_name = "student";
 
+
+require_once "$root_path/models/MyDB.php";
+require_once "$root_path/models/User.php";
+
+if(!User::isUserLoggedIn()){
+    header("location:$root_path/user/login.php");
+}
+
+$db = new MyDB();
+$loggedIn_user = User::getUserFromSession();
 require_once "$root_path/components/dashButton.php";
 ?>
 
@@ -22,41 +33,8 @@ require_once "$root_path/components/dashButton.php";
                 <div class="container-fluid">
                     <div class="row">
                         <?php
-                            dashButton("$root_path/user/view_user.php", "pen-to-square", "Manage Student");
+                        dashButton("$root_path/student/manage_student.php", "pen-to-square", "Manage Student");
                         ?>
-                        
-                        <!-- <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="<?= $root_path ?>user/view_user.php">
-                                <div class="card primary-color text-white align-items-center pt-3">
-                                    <i class="fa-solid fa-pen-to-square fa-3x"></i>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Manage Student</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div> -->
-
-                        <!-- <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="<?= $root_path ?>user/add_user.php">
-                                <div class="card primary-color text-white align-items-center pt-3">
-                                    <i class="fa-solid fa-circle-plus fa-3x"></i>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Add Student</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-sm-12 col-md-4 pb-5">
-                            <a href="<?= $root_path ?>user/update_user.php">
-                                <div class="card primary-color text-white align-items-center pt-3">
-                                    <i class="fa-solid fa-pen-to-square fa-3x"></i>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Update Student</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div> -->
 
                     </div>
 
