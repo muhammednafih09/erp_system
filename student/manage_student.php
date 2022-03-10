@@ -45,6 +45,8 @@ $loggedIn_user = User::getUserFromSession();
                                             <th scope="col">Photo</th>
                                             <th scope="col">First Name</th>
                                             <th scope="col">Last Name</th>
+                                            <th scope="col">Phone Number</th>
+                                            <th scope="col">Email</th>
                                             <th scope="col">Department</th>
                                             <th scope="col"></th>
                                         </tr>
@@ -59,6 +61,8 @@ $loggedIn_user = User::getUserFromSession();
                                                 <td><img src="<?= $root_path ?>/assets/images/users/<?= $userObj->getProfilePicUrl() ?>" alt="" class="" style="width: 50px; height: 50px; border-radius: 100% !important;"></td>
                                                 <td><?= $userObj->firstName; ?></td>
                                                 <td><?= $userObj->lastName; ?></td>
+                                                <td><?= $userObj->phoneNumber; ?></td>
+                                                <td><?= $userObj->email; ?></td>
                                                 <td><?= $userObj->department->name; ?></td>
                                                 <td><a href="edit_student.php?id=<?= $userObj->id ?>" class="btn primary-color text-white">Edit</a></td>
                                                 <td><a href="delete_student.php?id=<?= $userObj->id ?>" class="btn bg-danger text-white">Delete</a></td>

@@ -21,7 +21,7 @@ $loggedIn_user = User::getUserFromSession();
 
 <head>
     <?php require_once "$root_path/components/head.php"; ?>
-    <title>Dashboard</title>
+    <title>Profile</title>
 </head>
 
 <body>

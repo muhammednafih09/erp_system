@@ -7,7 +7,7 @@ $page_name = "student";
 require_once "$root_path/models/MyDB.php";
 require_once "$root_path/models/User.php";
 
-if(!User::isUserLoggedIn()){
+if (!User::isUserLoggedIn()) {
     header("location:$root_path/user/login.php");
 }
 
@@ -29,11 +29,16 @@ $loggedIn_user = User::getUserFromSession();
             <div class="" style="padding-top: 65px;">
                 <div class="container-fluid p-2">
                     <div class="card p-4 secondary-color">
+                        <?php if (array_key_exists("msg", $_GET)) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= $_GET["msg"] ?>
+                            </div>
+                        <?php endif ?>
                         <div class="card-title text-center">
                             <h4>Add Student</h4>
                         </div>
                         <div class="card-body">
-                            <form action="add_student_handler.php" name="" method="post"  enctype="multipart/form-data">
+                            <form action="add_student_handler.php" name="" method="post" id="add_student_form" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6">
                                         <label for="firstname">First Name</label>
@@ -47,7 +52,7 @@ $loggedIn_user = User::getUserFromSession();
 
                                     <div class="col-sm-12 col-md-6">
                                         <label for="email">Email</label>
-                                        <input type="mail" name="email" id="email" class="form-control" required>
+                                        <input type="email" name="email" id="email" class="form-control" required>
                                     </div>
 
                                     <div class="col-sm-12 col-md-6">
@@ -67,8 +72,8 @@ $loggedIn_user = User::getUserFromSession();
 
                                     <div class="col-sm-12 col-md-6">
                                         <label for="department_id">Department</label>
-                                        <select name="department_id" id="department_id" class="form-select">
-                                            <option disabled selected>select any</option>
+                                        <select name="department_id" id="department_id" class="form-select" required>
+                                            <option disabled selected value="">select any</option>
                                             <?php foreach (Department::getAll($db) as $dept) : ?>
                                                 <option value="<?= $dept->id ?>"><?= $dept->name ?></option>
                                             <?php endforeach ?>
@@ -91,6 +96,26 @@ $loggedIn_user = User::getUserFromSession();
             </div>
         </div>
     </div>
+
+    <script>
+        const myform = $("#add_student_form");
+        myform.on("submit", function(e) {
+            e.preventDefault();
+            const pass = $("#password").val();
+            const conpass = $("#confirm_password").val();
+            const phoneNumber = $("#phone_number").val();
+            const Regex = /[0-9 -()+]+$/;
+
+            if (pass != conpass) {
+                alert("password is not same");
+            } else if ((phoneNumber.length <= 10) || (!Regex.test(phoneNumber))){
+                alert('Please enter a valid phone number!');
+                return false;
+            } else {
+                myform[0].submit();
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -11,6 +11,12 @@ $phone = $_POST['phone_number'];
 $pass = $_POST['password'];
 $department_id = $_POST['department_id'];
 
+$match = User::getUserByEmail($email, $db);
+
+if($match){
+    header("location: add_staff.php?msg=another%20user%20with%20same%20email%20exists");
+    exit;
+}
 
 $hashpass = password_hash($pass, PASSWORD_DEFAULT);
 

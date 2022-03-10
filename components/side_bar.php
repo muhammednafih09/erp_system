@@ -1,19 +1,13 @@
-<?php
-// User::getUserTypeFromSession() != "staff"
-
-// var_dump($user);
-
-?>
 <div class="d-flex flex-column flex-shrink-0 p-3 pt-5 secondary-color side-bar d-none d-sm-block">
     <nav class="navbar fixed-top navbar-light primary-color p-2 float-start">
         <a class="navbar-brand text-white" href="<?= $root_path ?>/index.php ?>">icampus</a>
 
-        <div class="input-group">
+        <!-- <div class="input-group">
             <input type="search" class="form-control search-bar">
             <button type="button" class="btn text-white p-0">
                 <i class="fa-solid fa-magnifying-glass px-2 pt-2"></i>
             </button>
-        </div>
+        </div> -->
 
         <div class="profile p-1 m-0 dropdown">
             <a href="<?= $root_path ?>/user/profile.php">

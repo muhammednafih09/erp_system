@@ -6,3 +6,4 @@
 <link rel="stylesheet" href="<?= $root_path ?>/assets/css/style.css">
 <link rel="icon" href="<?= $root_path ?>/assets/images/tab_icon.png" class="icon">
 <link href="<?= $root_path ?>/assets/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet">
+<script src="<?= $root_path ?>/assets/js/jquery-3.6.0.js"></script>

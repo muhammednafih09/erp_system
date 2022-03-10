@@ -48,8 +48,8 @@ class User
     {
         $hashpass = password_hash($this->pass, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO `tbl_users`( `first_name`, `last_name`, `email`, `phone_number`, `password`, `user_type`, `active`) 
-                VALUES ('" . $this->firstName . "','" . $this->lastName . "','" . $this->email . "','" . $this->phoneNumber . "','$hashpass','" . $this->userType . "', " . $this->active . ")";
+        $sql = "INSERT INTO `tbl_users`( `first_name`, `last_name`, `email`, `phone_number`, `password`, `user_type`, `department`, `active`) 
+                VALUES ('" . $this->firstName . "','" . $this->lastName . "','" . $this->email . "','" . $this->phoneNumber . "','$hashpass','" . $this->userType . "', '".$this->department->id."', " . $this->active . ")";
 
         $db->runSQL($sql);
 

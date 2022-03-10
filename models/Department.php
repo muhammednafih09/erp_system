@@ -38,11 +38,14 @@ class Department{
 
     public static function getOne(MyDB $db, int $id){
         $department = $db->getOneRow("SELECT * FROM tbl_departments WHERE id = $id");
+        if(!$department){
+            return null;
+        }
         return new self(
             $department['id'],
             $department['name'],
             $department['head']
-        );
+        ); 
     }
 }
 
