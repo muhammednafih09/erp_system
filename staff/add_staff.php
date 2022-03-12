@@ -85,9 +85,9 @@ $loggedIn_user = User::getUserFromSession();
                                         <input type="file" name="user_photo" id="user_photo" class="form-control" required>
                                     </div>
                                 </div>
-                                <br><br>
+                                <br>
 
-                                <input type="submit" value="Create" class="btn primary-color text-white">
+                                <input type="submit" value="Create" class="btn primary-color text-white float-end">
                             </form>
                         </div>
 
@@ -108,7 +108,7 @@ $loggedIn_user = User::getUserFromSession();
 
             if (pass != conpass) {
                 alert("password is not same");
-            } else if ((phoneNumber.length <= 10) || (!Regex.test(phoneNumber))){
+            } else if (phoneNumber.length < 10 || phoneNumber.length > 13 || !Regex.test(phoneNumber)){
                 alert('Please enter a valid phone number!');
                 return false;
             } else {

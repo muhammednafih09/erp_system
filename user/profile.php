@@ -41,11 +41,11 @@ $loggedIn_user = User::getUserFromSession();
                                 </div>
                                 <div class="card-body">
                                     <div class="profile-image text-center">
-                                        <img src="<?= $root_path ?>/assets/images/users/<?= $loggedIn_user->getProfilePicUrl() ?>" alt="" class="" style="width: 100px; border-radius: 100% !important;">
+                                        <img src="<?= $root_path ?>/assets/images/users/<?= $loggedIn_user->getProfilePicUrl() ?>" alt="" class="" style="width: 100px; height: 100px;; border-radius: 100% !important;">
                                     </div>
                                     <br><br>
-
-                                    <form action="add_user_handler.php" name="" method="post">
+            
+                                    <form action="edit_profile_handler.php" name="" method="post">
                                         <div class="row">
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="firstname">First Name</label>
@@ -78,16 +78,6 @@ $loggedIn_user = User::getUserFromSession();
                                             </div>
 
                                             <div class="col-sm-12 col-md-6">
-                                                <label for="department_id">Department</label>
-                                                <select name="department_id" id="department_id" class="form-select">
-                                                    <option disabled selected>select any</option>
-                                                    <?php foreach (Department::getAll($db) as $dept) : ?>
-                                                        <option value="<?= $dept->id ?>" <?= $loggedIn_user->department->id == $dept->id ? "selected" : "" ?>><?= $dept->name ?></option>
-                                                    <?php endforeach ?>
-                                                </select>
-                                            </div>
-
-                                            <div class="col-sm-12 col-md-6">
                                                 <label for="user_photo">Choose Photo</label>
                                                 <input type="file" name="user_photo" id="user_photo" class="form-control">
                                             </div>
@@ -109,6 +99,26 @@ $loggedIn_user = User::getUserFromSession();
 
             </div>
         </div>
+
+        <script>
+            const myform = $("#update_profile_form");
+            myform.on("submit", function(e) {
+                e.preventDefault();
+                const pass = $("#password").val();
+                const conpass = $("#confirm_password").val();
+                const phoneNumber = $("#phone_number").val();
+                const Regex = /[0-9 -()+]+$/;
+
+                if (pass != conpass) {
+                    alert("password is not same");
+                } else if ((phoneNumber.length <= 10) || (!Regex.test(phoneNumber))) {
+                    alert('Please enter a valid phone number!');
+                    return false;
+                } else {
+                    myform[0].submit();
+                }
+            });
+        </script>
 
 </body>
 
